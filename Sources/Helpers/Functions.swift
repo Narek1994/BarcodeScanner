@@ -22,7 +22,7 @@ func imageNamed(_ name: String) -> UIImage {
  - Returns: An image.
  */
 func localizedString(_ key: String) -> String {
-    NSLocalizedString(key, bundle: Bundle.module, comment: key)
+    NSLocalizedString(key, bundle: BarcodeCustomLanguage.createBundle(), comment: key)
 }
 
 /// Checks if the app is running in Simulator.
@@ -41,3 +41,19 @@ var isSimulatorRunning: Bool = {
     #endif
   #endif
 }()
+
+public struct BarcodeCustomLanguage {
+
+    static var language: String = ""
+    
+    public static func set(language: String) {
+        BarcodeCustomLanguage.language = language
+    }
+    
+    static func createBundle() -> Bundle {
+        guard let path = Bundle.main.path(forResource: language, ofType: "lproj"), let bundle = Bundle(path: path) else  {
+            return Bundle.module
+        }
+        return bundle
+    }
+}
