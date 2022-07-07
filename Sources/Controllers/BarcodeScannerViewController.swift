@@ -284,7 +284,7 @@ private extension BarcodeScannerViewController {
       messageView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
       messageView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
       messageView.heightAnchor.constraint(
-        equalToConstant: hideFooterView ? 0 : -BarcodeScannerViewController.footerHeight
+        equalToConstant: hideFooterView ? 0 : BarcodeScannerViewController.footerHeight
       )
     ]
   }
