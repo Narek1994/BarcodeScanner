@@ -51,7 +51,7 @@ public struct BarcodeCustomLanguage {
     }
     
     static func createBundle() -> Bundle {
-        guard let path = Bundle.main.path(forResource: language, ofType: "lproj"), let bundle = Bundle(path: path) else  {
+        guard let path = Bundle.module.path(forResource: language, ofType: "lproj"), let bundle = Bundle(path: path) else  {
             return Bundle.module
         }
         return bundle
